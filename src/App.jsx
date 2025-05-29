@@ -50,7 +50,12 @@ function App() {
       const data = await response.json();
       const answerText = data.candidates[0].content.parts[0].text
         .replace(/\*\*/g, '')         
-        .replace(/\*/g, '')          
+        .replace(/\*/g, '')
+        .replace(/```\n/g, '')
+        .replace(/```/g, '')
+        .replace(/"""\n/g, '')
+        .replace(/"""/g, '')
+        .replace(/`/g, '')      
         .replace(/\n/g, ' ')         
         .replace(/\s+/g, ' ')         
         .trim();
